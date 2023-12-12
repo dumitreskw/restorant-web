@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './services/authentication.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'restorant-web';
+
+  constructor(private authService: AuthenticationService,
+    private cookieService: CookieService,
+    private router: Router) {
+
+  }
+
+  get isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  get isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
+  get username(): string {
+    return this.authService.getUsername();
+  }
+
+  logout() {
+    this.authService.logout().subscribe(res => this.router.navigateByUrl(''));
+  }
 }
