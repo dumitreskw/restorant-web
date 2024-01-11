@@ -1,5 +1,6 @@
 
 .wrapper {
+    max-height:75%;
     display: grid;
     grid-template-rows: auto 1fr;
 
@@ -13,5 +14,6 @@
         display: flex;
         flex-wrap: wrap;
         gap: 16px;
+        overflow-y: auto;
     }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ContactComponent implements OnInit {
   form!: FormGroup;
 
-  constructor() {}
+  constructor(private authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -33,5 +34,10 @@ export class ContactComponent implements OnInit {
       subject: new FormControl('', Validators.required),
       text: new FormControl('', Validators.required),
     });
+
+    if(this.authService.isAuthenticated()) {
+      this.emailControl.disable();
+      this.emailControl.setValue('test@test.com');
+    }
   }
 }

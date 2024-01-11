@@ -31,7 +31,9 @@ import { MenuComponent } from './components/overview/menu/menu.component';
 import { ContactComponent } from './components/overview/contact/contact.component';
 import { NgEventBus } from 'ng-event-bus';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatMenuModule} from '@angular/material/menu';
+import { ShoppingCartComponent } from './components/overview/shopping-cart/shopping-cart.component';
+import { BookATableComponent } from './components/overview/book-a-table/book-a-table.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/materia
     ProductCardComponent,
     ProductModalComponent,
     MenuComponent,
-    ContactComponent
+    ContactComponent,
+    ShoppingCartComponent,
+    BookATableComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,8 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/materia
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [
     NgEventBus,

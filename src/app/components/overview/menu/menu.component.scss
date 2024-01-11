@@ -4,6 +4,7 @@
 
 .products {
     padding: 16px;
+    flex-wrap: wrap;
     display: flex;
     gap: 16px;
 }

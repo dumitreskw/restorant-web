@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, afterNextRender } from '@angular/core';
 import { Product } from '../../../../models/product';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
 import { AuthenticationService } from '../../../../services/authentication.service';
 import { ProductsService } from '../../../../services/products.service';
+import { CartService } from '../../../../services/cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-card',
@@ -15,7 +17,9 @@ export class ProductCardComponent {
   @Input() inEdit: boolean = false;
   constructor(public dialog: MatDialog,
     private authService: AuthenticationService,
-    private productsService: ProductsService) {
+    private productsService: ProductsService,
+    private cartService: CartService,
+    private snackbar: MatSnackBar) {
     let dummyProduct = new Product();
     dummyProduct.name = 'Telescop';
     dummyProduct.description = 'ceva descriere 123 4 5 6';
@@ -42,5 +46,20 @@ export class ProductCardComponent {
         },
       });
     }
+  }
+
+  addItem() {
+    this.cartService.addToCart(this.product._id as string).subscribe({
+      next: (res) => {
+        if(res.success) {
+          this.snackbar.open(`Product ${this.product.name} added to cart`);
+        }
+      },
+      error: (error) => {
+        console.error(error);
+        this.snackbar.open("There was an error adding this item to cart");
+      }
+    })
+
   }
 }

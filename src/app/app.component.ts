@@ -32,4 +32,8 @@ export class AppComponent {
   logout() {
     this.authService.logout().subscribe(res => this.router.navigateByUrl(''));
   }
+
+  onCartClicked(): void {
+    this.router.navigateByUrl('/shopping-cart');
+  }
 }

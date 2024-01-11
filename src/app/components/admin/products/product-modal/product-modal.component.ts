@@ -83,9 +83,13 @@ export class ProductModalComponent implements OnInit, OnDestroy {
     this.productsService
       .getCategories()
       .pipe(takeUntil(this.onComponentDestroy))
-      .subscribe((res) => {
-        this.categories = res.categories;
-        this.categories.push('Add new...');
+      .subscribe({
+        next: (res) => this.categories = res.categories,
+        complete: () => this.categories.push('Add new...'),
+        error: (err) => {
+          console.error(err);
+          this.categories.push('Add new...');
+        }
       });
   }
 

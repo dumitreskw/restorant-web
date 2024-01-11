@@ -12,12 +12,16 @@ import { AdminOverviewComponent } from './components/admin/admin-overview/admin-
 import { MenuComponent } from './components/overview/menu/menu.component';
 import { ContactComponent } from './components/overview/contact/contact.component';
 import { TokenVerifyComponent } from './components/auth/token-verify/token-verify.component';
+import { ShoppingCartComponent } from './components/overview/shopping-cart/shopping-cart.component';
+import { BookATableComponent } from './components/overview/book-a-table/book-a-table.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'contact', component: ContactComponent},
+  {path: 'shopping-cart', component: ShoppingCartComponent},
+  {path: 'book-table', component: BookATableComponent},
   {path: 'dashboard', 
     component: DashboardComponent,
     canActivate:[adminGuard],

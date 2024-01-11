@@ -4,7 +4,7 @@
           <mat-label>Email</mat-label>
           <input matInput type="text" [formControl]="emailControl">
           @if (emailControl.value && !form.disabled) {
-            <button matSuffix mat-icon-button aria-label="Clear" (click)="emailControl.reset()">
+            <button matSuffix mat-icon-button aria-label="Clear" *ngIf="!emailControl.disabled" (click)="emailControl.reset()">
               <mat-icon>close</mat-icon>
             </button>
           }

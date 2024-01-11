@@ -24,8 +24,9 @@ export class ProductsComponent implements OnInit {
   }
 
   private getProducts(): void {
-    this.productsService.getProducts().subscribe(res => {
-      this.products = res.products;
+    this.productsService.getProducts().subscribe({
+      next: (res) => this.products = res.products,
+      error: (err) => console.log(err)
     })
   }
 
