@@ -58,16 +58,20 @@
                 <div class="header">
                     <div class="title">Select delivery address</div>
                     <div class="actions">
-                        <button mat-icon-button class="small-icon-button"> <mat-icon>add</mat-icon></button>
+                        <button mat-icon-button class="small-icon-button" (click)="onOpenAddAddress()"> <mat-icon>add</mat-icon></button>
                     </div>
                 </div>
 
                 <div class="adresses">
-
+                    <mat-radio-group [formControl]="addressControl">
+                        @for(address of addresses; track null) {
+                            <mat-radio-button [value]="address._id"><div class="white-text">{{address.contactPerson}} - {{address.phoneNumber}} - {{address.city}} - {{address.addressLine1}}</div></mat-radio-button>
+                        }
+                    </mat-radio-group>
                 </div>
             </div>
             <div class="checkout">
-                <button mat-raised-button>CHECKOUT</button>
+                <button mat-raised-button (click)="onCheckout()">CHECKOUT</button>
             </div>
         </div>
     </div>

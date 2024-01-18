@@ -145,6 +145,22 @@
     }
  }
 
+ mat-radio-group {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+mat-radio-button {
+    color: white;
+}
+.white-text {
+    color:white;
+}
+
  .checkout {
     button {
         width: 100%;

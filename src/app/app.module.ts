@@ -34,6 +34,9 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/materia
 import {MatMenuModule} from '@angular/material/menu';
 import { ShoppingCartComponent } from './components/overview/shopping-cart/shopping-cart.component';
 import { BookATableComponent } from './components/overview/book-a-table/book-a-table.component';
+import { AddressModalComponent } from './components/profile/address-modal/address-modal.component';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +55,8 @@ import { BookATableComponent } from './components/overview/book-a-table/book-a-t
     MenuComponent,
     ContactComponent,
     ShoppingCartComponent,
-    BookATableComponent
+    BookATableComponent,
+    AddressModalComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,8 @@ import { BookATableComponent } from './components/overview/book-a-table/book-a-t
     MatSelectModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   providers: [
     NgEventBus,

@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'menu', component: MenuComponent},
-  {path: 'contact', component: ContactComponent},
+  {path: 'support', component: ContactComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'book-table', component: BookATableComponent},
   {path: 'dashboard', 
