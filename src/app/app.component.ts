@@ -36,4 +36,8 @@ export class AppComponent {
   onCartClicked(): void {
     this.router.navigateByUrl('/shopping-cart');
   }
+
+  onOrdersClicked() {
+    this.router.navigateByUrl('/orders');
+  }
 }

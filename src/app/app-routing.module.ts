@@ -14,6 +14,7 @@ import { ContactComponent } from './components/overview/contact/contact.componen
 import { TokenVerifyComponent } from './components/auth/token-verify/token-verify.component';
 import { ShoppingCartComponent } from './components/overview/shopping-cart/shopping-cart.component';
 import { BookATableComponent } from './components/overview/book-a-table/book-a-table.component';
+import { OrdersComponent } from './components/profile/orders/orders.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'support', component: ContactComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'book-table', component: BookATableComponent},
+  {path: 'orders', component: OrdersComponent},
   {path: 'dashboard', 
     component: DashboardComponent,
     canActivate:[adminGuard],

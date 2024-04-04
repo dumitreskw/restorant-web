@@ -8,6 +8,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { NgEventBus } from 'ng-event-bus';
 import { EVENT_NAME } from '../../../constants/event-names';
 import { Subject, takeUntil } from 'rxjs';
+import { InvoiceService } from '../../../services/invoice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -23,8 +25,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   constructor(
     private cartService: CartService,
     private addressService: AddressService,
+    private invoiceService: InvoiceService,
     public dialog: MatDialog,
-    private eventBus: NgEventBus
+    private eventBus: NgEventBus,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -104,7 +108,12 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   onCheckout() {
-    console.log(this.addressControl.value);
+    this.invoiceService.createInvoice()
+    .subscribe({
+      next: (res) => (console.log(res)),
+      complete: () => this.router.navigateByUrl('/orders'),
+      error: (err) => console.error(err)
+    })
   }
 
   private subscribeToAddressAdded(): void {

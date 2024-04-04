@@ -36,7 +36,8 @@ import { ShoppingCartComponent } from './components/overview/shopping-cart/shopp
 import { BookATableComponent } from './components/overview/book-a-table/book-a-table.component';
 import { AddressModalComponent } from './components/profile/address-modal/address-modal.component';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { OrdersComponent } from './components/profile/orders/orders.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MatRadioModule } from '@angular/material/radio';
     ContactComponent,
     ShoppingCartComponent,
     BookATableComponent,
-    AddressModalComponent
+    AddressModalComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatTabsModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
   ],
   providers: [
     NgEventBus,
